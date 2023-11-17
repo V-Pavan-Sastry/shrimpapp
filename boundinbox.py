@@ -1,12 +1,7 @@
 import cv2
-
 # Function to draw the rectangle and label on the image
-def draw_rectangle(image_path, xmin, xmax, ymin, ymax, label, label_font_size,i):
-    if(i==0):
-    # Load the image
-        image = cv2.imread(image_path)
-    else:
-        image = cv2.imread("image_with_rectangle.jpg")
+def draw_rectangle(image_path, xmin, xmax, ymin, ymax, label, label_font_size):
+    image = cv2.imread('./assets/result.jpg')
 
 
     # Convert the coordinates from float to integer
@@ -30,7 +25,7 @@ def draw_rectangle(image_path, xmin, xmax, ymin, ymax, label, label_font_size,i)
     # Write the label on the image
     cv2.putText(image, label, (text_x, text_y + text_size[0][1]), font, label_font_size, (0, 0, 255), 2)
     # Save the image
-    cv2.imwrite('image_with_rectangle.jpg', image)
+    cv2.imwrite('./assets/result.jpg', image)
 
 # Test the function
 #draw_rectangle('C:/Users/pavan/Desktop/296.jpg', 100, 300, 200, 400, 'Label', 0.7)

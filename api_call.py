@@ -2,9 +2,9 @@ import requests
 import ast
 import time
 
-def call_api(img_path):
+def call_api(img_path,api_endpoint):
     start=time.time()
-    url = "http://127.0.0.1:8000/detect"
+    url = api_endpoint #"http://127.0.0.1:8000/detect"
     files = {"img": open(img_path, "rb")}
     response = requests.post(url, files=files)
     
@@ -16,9 +16,6 @@ def call_api(img_path):
         data=ast.literal_eval(response.text)
         print(data)
         return data
-        for i in range(len(data)):
-            print(str.upper(data[str(i)]["name"])+" : "+data[str(i)]["confidence"])
-            print("coordinates: "+data[str(i)]["xmin"],data[str(i)]["ymin"],data[str(i)]["xmax"],data[str(i)]["ymax"])
     else:
         print("Request failed with status code:", response.status_code)
 
