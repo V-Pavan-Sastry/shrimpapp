@@ -10,14 +10,14 @@ api_endpoint=''
 def upload():
     f = file_upload("Upload a file")    
     print(f)              
-    open('assets/'+'captured_img.jpg', 'wb').write(f['content'])
-    open('assets/'+'result.jpg', 'wb').write(f['content'])
+    open('./assets/'+'captured_img.jpg', 'wb').write(f['content'])
+    open('./assets/'+'result.jpg', 'wb').write(f['content'])
     result()  
 def click():
     cap = cv2.VideoCapture(0)
     ret, frame = cap.read()          
-    cv2.imwrite('assets/captured_img.jpg', frame)
-    cv2.imwrite('assets/result.jpg', frame)
+    cv2.imwrite('./assets/captured_img.jpg', frame)
+    cv2.imwrite('./assets/result.jpg', frame)
     put_text("Clicking a pick ...")
     result()
 def display():
